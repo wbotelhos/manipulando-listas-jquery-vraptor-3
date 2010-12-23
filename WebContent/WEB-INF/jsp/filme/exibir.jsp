@@ -11,7 +11,7 @@
 	<body>
 		${filme.titulo} <a href="<c:url value='/filme/editar/${filme.id}'/>">Editar</a>
 		<ul>
-			<c:forEach items="${filme.artistaList}" var="artista">
+			<c:forEach items="${filme.artistas}" var="artista">
 				<li>${artista.nome}</li>
 			</c:forEach>
 		</ul>

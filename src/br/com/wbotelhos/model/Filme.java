@@ -14,7 +14,7 @@ public class Filme implements Serializable {
 
 	private Integer id;
 	private String titulo;
-	private Collection<Artista> artistaList;
+	private Collection<Artista> artistas;
 
 	public Integer getId() {
 		return id;
@@ -32,12 +32,12 @@ public class Filme implements Serializable {
 		this.titulo = titulo;
 	}
 
-	public Collection<Artista> getArtistaList() {
-		return artistaList;
+	public Collection<Artista> getArtistas() {
+		return artistas;
 	}
 
-	public void setArtistaList(Collection<Artista> artistaList) {
-		this.artistaList = artistaList;
+	public void setArtistas(Collection<Artista> artistas) {
+		this.artistas = artistas;
 	}
 
 }

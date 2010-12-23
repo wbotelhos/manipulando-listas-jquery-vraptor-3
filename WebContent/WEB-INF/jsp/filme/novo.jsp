@@ -24,10 +24,10 @@
 					<img src="<c:url value='/img/adicionar.png'/>" alt="+" onclick="adicionarArtista();"/>
 				</legend>
 
-				<c:forEach items="${filme.artistaList}" var="item" varStatus="status">
+				<c:forEach items="${filme.artistas}" var="item" varStatus="status">
 					<div data-index="${status.index}" class="artista-item">
 						<label>Nome:</label>
-						<input type="text" name="filme.artistaList[${status.index}].nome" value="${item.nome}"/>
+						<input type="text" name="filme.artistas[${status.index}].nome" value="${item.nome}"/>
 						<img src="<c:url value='/img/remover.png'/>" alt="-" class="btn-remover-ator"/>
 					</div>
 				</c:forEach>
@@ -56,7 +56,7 @@
 
 				$('<div class="artista-item">' +
 					'<label>Nome:</label>' +
-					'<input type="text" name="filme.artistaList[' + index + '].nome" value="${item.nome}"/>' +
+					'<input type="text" name="filme.artistas[' + index + '].nome" value="${item.nome}"/>' +
 					'<img src=\'<c:url value="/img/remover.png"/>\' alt="-" class="btn-remover-ator"/>' +
 				'</div>')
 				.data('index', index)

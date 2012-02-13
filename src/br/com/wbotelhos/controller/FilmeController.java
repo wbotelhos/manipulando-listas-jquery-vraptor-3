@@ -1,7 +1,8 @@
 package br.com.wbotelhos.controller;
 
+import java.util.Collection;
+
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
@@ -24,36 +25,35 @@ public class FilmeController {
 		this.filmeDao = filmeDao;
 	}
 
-	@Path("/")
+	@Get("/")
 	public void index() {
-		result.of(this).novo(null);
+		result.redirectTo(this).listagem();
 	}
 
-	@Get
-	@Path("/filme/novo")
-	public Filme novo(Filme filme) {
-		return filme;
+	@Get("/filme/criar")
+	public void criar() {
+
 	}
 
-	@Post
-	@Path("/filme")
+	@Post("/filme")
 	public void salvar(Filme filme) {
-		filme = filmeDao.salvar(filme);
-		result.redirectTo(this).exibir(filme);
+		filmeDao.save(filme);
+		result.redirectTo(this).listagem();
 	}
 
-	@Get
-	@Path("/filme/exibir/{filme.id}")
+	@Get("/filme/{filme.id}")
 	public Filme exibir(Filme filme) {
 		return filmeDao.loadById(filme.getId());
 	}
 
-	@Get
-	@Path("/filme/editar/{filme.id}")
-	public void editar(Filme filme) {
-		result.redirectTo(this).novo(filmeDao.loadById(filme.getId()));
+	@Get("/filme/{filme.id}/editar")
+	public Filme editar(Filme filme) {
+		return filmeDao.loadById(filme.getId());
 	}
 
-
+	@Get("/filme")
+	public Collection<Filme> listagem() {
+		return filmeDao.loadAll();
+	}
 
 }

@@ -1,6 +1,8 @@
 package br.com.wbotelhos.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.caelum.vraptor.ioc.SessionScoped;
@@ -17,17 +19,29 @@ public class FilmeDao implements Serializable {
 
 	private static final long serialVersionUID = -7968330624901437028L;
 
-	private Filme filme = new Filme();
-	private Integer id = 1;
+	private Collection<Filme> filmeList = new ArrayList<Filme>();
+	private Long id = 1l;
 
-	public Filme salvar(Filme filme) {
+	public Filme save(Filme filme) {
 		filme.setId(id++);
-		this.filme = filme;
-		return this.filme;
+
+		filmeList.add(filme);
+
+		return filme;
 	}
 
-	public Filme loadById(Integer id) {
-		return filme;
+	public Filme loadById(Long id) {
+		for (Filme item : filmeList) {
+			if (item.getId().intValue() == id.intValue()) {
+				return item;
+			}
+		}
+
+		return null;
+	}
+
+	public Collection<Filme> loadAll() {
+		return filmeList;
 	}
 
 }

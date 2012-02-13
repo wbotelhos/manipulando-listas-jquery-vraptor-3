@@ -22,12 +22,14 @@ public class FilmeDao implements Serializable {
 	private Collection<Filme> filmeList = new ArrayList<Filme>();
 	private Long id = 1l;
 
-	public Filme save(Filme filme) {
-		filme.setId(id++);
+	public void save(Filme filme) {
 
-		filmeList.add(filme);
-
-		return filme;
+		if (filme.getId() == null) {
+			filme.setId(id++);
+			filmeList.add(filme);
+		} else {
+			update(filme);
+		}
 	}
 
 	public Filme loadById(Long id) {
@@ -38,6 +40,20 @@ public class FilmeDao implements Serializable {
 		}
 
 		return null;
+	}
+
+	public void update(Filme filme) {
+		Collection<Filme> newList = new ArrayList<Filme>();
+
+		for (Filme item : filmeList) {
+			if (item.getId().intValue() == filme.getId().intValue()) {
+				newList.add(filme);
+			} else {
+				newList.add(item);
+			}
+		}
+
+		filmeList = newList;
 	}
 
 	public Collection<Filme> loadAll() {

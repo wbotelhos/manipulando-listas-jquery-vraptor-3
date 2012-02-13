@@ -11,14 +11,14 @@ public class Artista implements Serializable {
 
 	private static final long serialVersionUID = -6664663318232905567L;
 
-	private Integer id;
+	private Long id;
 	private String nome;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

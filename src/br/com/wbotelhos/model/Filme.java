@@ -12,15 +12,15 @@ public class Filme implements Serializable {
 
 	private static final long serialVersionUID = -5984643569810298849L;
 
-	private Integer id;
+	private Long id;
 	private String titulo;
 	private Collection<Artista> artistas;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

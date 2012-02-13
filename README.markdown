@@ -1,7 +1,7 @@
 # Manipulando Listas com jQuery e VRaptor 3
 
-Fazer um cadastro de filme que contenha vários artistas que podem ser adicionados ou removidos 
-usando o jQuery para criar a dinâmica de tela e o VRaptor para capturar e organizar os dados.
+Como fazer um cadastro de filme que contenha vários artistas que podem 
+ser adicionados ou removidos dinamicamente usando jQuery e VRaptor.
 
 ## Project context
 

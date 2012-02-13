@@ -1,19 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title>http://wbotelhos.com.br</title>
+		<title>Filme | Exibi&ccedil;&atilde;o</title>
 	</head>
 	<body>
-		${filme.titulo} <a href="<c:url value='/filme/editar/${filme.id}'/>">Editar</a>
-		<ul>
-			<c:forEach items="${filme.artistas}" var="artista">
-				<li>${artista.nome}</li>
-			</c:forEach>
-		</ul>
+		<a href="${pageContext.request.contextPath}/filme">Listagem</a> | <a href="${pageContext.request.contextPath}/filme/criar">Novo</a><br/><br/>
+
+		Título: ${filme.titulo}<br/>
+
+		Artistas:<br/>
+
+		<c:forEach items="${filme.artistas}" var="artista">
+			- ${artista.nome}<br/>
+		</c:forEach><br/>
+
+		<a href="${pageContext.request.contextPath}/filme/${filme.id}/editar">Editar</a>
 	</body>
 </html>
